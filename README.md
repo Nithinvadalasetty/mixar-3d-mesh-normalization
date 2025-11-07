@@ -69,9 +69,9 @@ mixar-3d-mesh-normalization
 
 ---
 
-## ✅ Tasks & Implementation
+✅ Tasks & Implementation
 
-### **📍 Task 1: Mesh Statistics**
+📍 Task 1: Mesh Statistics**
 Extract vertex statistics for each mesh:
 
 - Vertex count
@@ -79,5 +79,94 @@ Extract vertex statistics for each mesh:
 - Mean
 - Standard deviation
 
-```bash
 python src/pipeline.py --mesh data/cube.obj --task 1
+Task 2: Normalization + Quantization
+
+Runs Min–Max and Unit Sphere normalization → Quantization (1024 bins)
+
+python src/pipeline.py --mesh data/cube.obj --task 2 --method minmax --bins 1024
+python src/pipeline.py --mesh data/cube.obj --task 2 --method unit_sphere --bins 1024
+
+📍 Task 3: Reconstruction + Error Metrics
+
+Computes reconstruction error after dequantization:
+
+python src/pipeline.py --mesh data/cube.obj --task 3 --method minmax --bins 1024
+python src/pipeline.py --mesh data/cube.obj --task 3 --method unit_sphere --bins 1024
+
+
+Outputs include:
+
+MSE
+
+MAE
+
+Per-axis errors
+
+JSON + Plot
+
+🚀 Run Complete Pipeline on All Meshes
+python run_all.py --bins 1024
+
+🎨 Visual Comparison (Min–Max)
+
+Below are the comparison sheets for the Min–Max pipeline:
+
+📍 Add your images here after uploading to GitHub (drag & drop):
+
+Example placeholder (replace with your images):
+
+outputs/renders/montages/comparison_cube.png
+outputs/renders/montages/comparison_sphere.png
+outputs/renders/montages/comparison_torus.png
+outputs/renders/montages/comparison_cylinder.png
+outputs/renders/montages/comparison_cone.png
+
+📊 Results Summary
+🔥 Reconstruction Error (1024 bins)
+Mesh	Min–Max MSE	Unit Sphere MSE	Winner
+Cube	0.00	4.00e-06	Min–Max
+Cylinder	7.81e-07	3.08e-06	Min–Max
+Cone	7.83e-07	2.54e-06	Min–Max
+Sphere	1.25e-06	1.25e-06	Tie
+Torus	2.50e-06	3.62e-06	Min–Max
+🧠 Key Insights
+
+Min–Max preserved geometry better across 4/5 meshes
+
+Sphere tied because radial symmetry suits unit-sphere scaling
+
+Unit Sphere is more robust across arbitrary scales, but slightly lossy after quantization
+
+For XR pipelines requiring accuracy, Min–Max is recommended
+
+For applications needing scale-invariance, Unit Sphere is preferred
+
+🖥️ Rendering with Blender
+
+Generate renders of Original → Normalized → Quantized → Reconstructed
+
+# Run Blender Renders
+"C:\Program Files\Blender Foundation\Blender 3.6\blender.exe" -b -P blender/render_all.py
+
+# Build comparison sheets
+python blender/make_montage.py
+
+🧪 Future Improvements
+
+Visual comparison for Unit Sphere pipeline
+
+Add rotation-invariant normalization
+
+Add mesh topology metrics
+
+Support more formats (.fbx, .stl, .gltf)
+
+✨ Author
+
+🇮🇳 Nithin Sai
+
+If this repo helped you or you found the comparison insightful, ⭐ star the repository!
+
+
+
