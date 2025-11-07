@@ -5,9 +5,7 @@
 **Author:** 🇮🇳 *Nithin Sai*  
 **Repository:** `mixar-3d-mesh-normalization`
 
----
-
-## 📌 Overview
+📌 Overview
 
 This project implements a **3D mesh preprocessing pipeline** to evaluate two different normalization techniques used in graphics, XR, gaming, and 3D content optimization workflows:
 
@@ -18,9 +16,8 @@ This project implements a **3D mesh preprocessing pipeline** to evaluate two dif
 
 After normalization, meshes are **quantized to 1024 bins**, then **reconstructed**, and **reconstruction error** is computed to compare both methods.
 
----
 
-## 🧠 Objectives
+🧠 Objectives
 
 ✔ Normalize 3D meshes using **Min–Max** and **Unit Sphere**  
 ✔ Quantize → Dequantize to simulate compression  
@@ -28,9 +25,9 @@ After normalization, meshes are **quantized to 1024 bins**, then **reconstructed
 ✔ Compare both methods across 5 meshes  
 ✔ Provide rendered visual comparison sheets  
 
----
 
-## 🚀 Tech Stack
+
+🚀 Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![NumPy](https://img.shields.io/badge/NumPy-2.0+-013243.svg)
@@ -38,9 +35,9 @@ After normalization, meshes are **quantized to 1024 bins**, then **reconstructed
 ![Trimesh](https://img.shields.io/badge/Trimesh-Mesh%20Processing-green.svg)
 ![Blender](https://img.shields.io/badge/Blender-3D%20Rendering-orange.svg)
 
----
 
-## 📂 Folder Structure
+
+📂 Folder Structure
 
 mixar-3d-mesh-normalization
 │
@@ -67,7 +64,7 @@ mixar-3d-mesh-normalization
 ├── run_all.py # Runs Tasks 1–3 for ALL meshes
 └── requirements.txt
 
----
+
 
 ✅ Tasks & Implementation
 
@@ -80,7 +77,8 @@ Extract vertex statistics for each mesh:
 - Standard deviation
 
 python src/pipeline.py --mesh data/cube.obj --task 1
-Task 2: Normalization + Quantization
+
+📍Task 2: Normalization + Quantization
 
 Runs Min–Max and Unit Sphere normalization → Quantization (1024 bins)
 
@@ -146,10 +144,10 @@ For applications needing scale-invariance, Unit Sphere is preferred
 
 Generate renders of Original → Normalized → Quantized → Reconstructed
 
-# Run Blender Renders
+Run Blender Renders
 "C:\Program Files\Blender Foundation\Blender 3.6\blender.exe" -b -P blender/render_all.py
 
-# Build comparison sheets
+ Build comparison sheets
 python blender/make_montage.py
 
 🧪 Future Improvements
