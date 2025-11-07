@@ -1,9 +1,9 @@
-# mixar-3d-mesh-normalization
-# 🧊 3D Mesh Pipeline: Min–Max vs Unit Sphere Normalization
+ mixar-3d-mesh-normalization
+ 🧊 3D Mesh Pipeline: Min–Max vs Unit Sphere Normalization
 
-### A Comparative Study on Mesh Normalization, Quantization & Reconstruction Error  
-**Author:** 🇮🇳 *Nithin Sai*  
-**Repository:** `mixar-3d-mesh-normalization`
+ A Comparative Study on Mesh Normalization, Quantization & Reconstruction Error  
+Author:Nithin Sai  
+Repository: `mixar-3d-mesh-normalization`
 
 📌 Overview
 
